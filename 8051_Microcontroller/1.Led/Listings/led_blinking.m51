@@ -1,0 +1,96 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/18/2025  15:08:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\PROGRAM FILES\C51\BIN\BL51.EXE .\Objects\led_blinking.obj TO .\Objects\led_blinking PRINT (.\Listings\led_blinking.m5
+>> 1)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led_blinking.obj (LED_BLINKING)
+  D:\PROGRAM FILES\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\led_blinking (LED_BLINKING)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0026H     UNIT         ?PR?_DELAY?LED_BLINKING
+            CODE    0826H     0012H     UNIT         ?PR?MAIN?LED_BLINKING
+            CODE    0838H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\led_blinking (LED_BLINKING)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED_BLINKING
+
+?PR?MAIN?LED_BLINKING
+  +--> ?PR?_DELAY?LED_BLINKING
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\led_blinking (LED_BLINKING)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_BLINKING
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0800H         PUBLIC        _delay
+  C:0826H         PUBLIC        main
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/18/2025  15:08:48  PAGE 2
+
+
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0800H         LINE#         3
+  C:0800H         LINE#         4
+  C:0800H         LINE#         6
+  C:0810H         LINE#         7
+  C:0810H         LINE#         8
+  C:0813H         LINE#         9
+  C:0813H         LINE#         10
+  C:081EH         LINE#         11
+  C:0825H         LINE#         12
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0826H         LINE#         14
+  C:0826H         LINE#         15
+  C:0826H         LINE#         16
+  C:0826H         LINE#         17
+  C:0829H         LINE#         18
+  C:0830H         LINE#         19
+  C:0833H         LINE#         20
+  C:0836H         LINE#         21
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_BLINKING
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0038H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=71
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

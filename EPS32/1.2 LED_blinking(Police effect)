@@ -1,0 +1,43 @@
+from machine import Pin
+from time import sleep
+
+led_blue = Pin(12, Pin.OUT)
+led_white = Pin(13, Pin.OUT)
+led_red = Pin(14, Pin.OUT)
+
+led = [led_blue, led_white, led_red]
+
+while True:
+    # Blue flash 3 times
+    for i in range(3):
+        led_blue.on()
+        sleep(0.1)
+        led_blue.off()
+        sleep(0.1)
+
+    sleep(0.1)
+    
+    for i in range(1):
+        led_white.on()
+        sleep(0.05)
+        led_white.off()
+        sleep(0.05)
+
+    # Red flash 3 times
+    for i in range(3):
+        led_red.on()
+        sleep(0.1)
+        led_red.off()
+        sleep(0.1)
+
+    sleep(0.2)
+    
+    for led in leds:
+        for l in leds:
+            l.off()
+            
+            # Turn ONE LED ON
+            led.on()
+            sleep(0.2)
+            
+        

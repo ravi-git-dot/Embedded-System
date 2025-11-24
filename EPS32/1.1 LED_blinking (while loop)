@@ -1,0 +1,19 @@
+from machine import Pin
+from time import sleep
+
+# LEDs
+led_blue = Pin(12, Pin.OUT)
+led_white = Pin(13, Pin.OUT)
+led_red = Pin(14, Pin.OUT)
+
+leds = [led_blue, led_white, led_red]
+
+while True:
+    for led in leds:
+        # Turn all OFF first
+        for l in leds:
+            l.off()
+
+        # Turn ONE LED ON
+        led.on()
+        sleep(0.2)   

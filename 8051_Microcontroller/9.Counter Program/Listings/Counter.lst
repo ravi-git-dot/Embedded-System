@@ -1,0 +1,62 @@
+C51 COMPILER V9.60.7.0   COUNTER                                                           11/20/2025 13:59:16 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE COUNTER
+OBJECT MODULE PLACED IN .\Objects\Counter.obj
+COMPILER INVOKED BY: D:\Program Files\C51\BIN\C51.EXE Counter.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\Counter.lst) TABS(2) OBJECT(.\Objects\Counter.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          int arr[] = {0XC0, 0XF9, 0XA4, 0XB0, 0X99, 0X92, 0X82, 0XF8, 0X80, 0X90};
+   4          
+   5          void main()
+   6          {
+   7   1         TMOD = 0x05;   // Timer0 Mode1, Counter Mode (C/T = 1)
+   8   1          TH0 = 0x00;    // Initial value
+   9   1          TL0 = 0x00;    
+  10   1          TR0 = 1;       // Start Counter0
+  11   1        while(1)
+  12   1          {
+  13   2            P2 = arr[TL0];
+  14   2          }
+  15   1          
+  16   1          
+  17   1      }
+  18          
+  19          /*
+  20          void delay()
+  21          {
+  22            //int arr[] = {0XC0, 0XF9, 0XA4, 0XB0, 0X99, 0X92, 0X82, 0XF8, 0X80, 0X90};
+  23          }
+  24          void main()
+  25          {
+  26             TMOD = 0x05;   // Timer0 Mode1, Counter Mode (C/T = 1)
+  27              TH0 = 0x00;    // Initial value
+  28              TL0 = 0x00;    
+  29              TR0 = 1;       // Start Counter0
+  30            while(1)
+  31              {
+  32                //P2 = arr[TL0];
+  33              }
+  34              
+  35              
+  36          }
+  37          
+  38          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     24    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

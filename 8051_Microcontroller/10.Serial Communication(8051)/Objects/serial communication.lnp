@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\8051_communication.obj" 
+TO ".\Objects\serial communication" 
+PRINT(".\Listings\serial communication.m51")

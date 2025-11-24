@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Keypad_security_system.obj" 
+TO ".\Objects\Keypad_security_system" 
+PRINT(".\Listings\Keypad_security_system.m51")

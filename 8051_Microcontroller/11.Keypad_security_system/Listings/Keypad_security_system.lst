@@ -1,0 +1,204 @@
+C51 COMPILER V9.60.7.0   KEYPAD_SECURITY_SYSTEM                                            11/21/2025 03:48:14 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEYPAD_SECURITY_SYSTEM
+OBJECT MODULE PLACED IN .\Objects\Keypad_security_system.obj
+COMPILER INVOKED BY: D:\Program Files\C51\BIN\C51.EXE Keypad_security_system.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTE
+                    -ND PRINT(.\Listings\Keypad_security_system.lst) TABS(2) OBJECT(.\Objects\Keypad_security_system.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <lcd.h> 
+   3          #include <string.h>
+   4          
+   5          sbit r1 = P1^0;
+   6          sbit r2 = P1^1;
+   7          sbit r3 = P1^2;
+   8          sbit r4 = P1^3;
+   9          sbit c1 = P1^4;
+  10          sbit c2 = P1^5;
+  11          sbit c3 = P1^6;
+  12          
+  13          sbit Re = P3^4;
+  14          sbit G  = P3^5;
+  15          sbit R  = P3^6;
+  16          
+  17          char a[] = {"7639"};  // Actual password
+  18          char b[4];            // rub time password
+  19          int n =0;
+  20          int val;
+  21          int count;
+  22          void main()
+  23          {
+  24   1        lcd_init();
+  25   1        Re = 0;   // Relay off
+  26   1        G  = 0;   // Green LED off
+  27   1        R  = 0;   // Red LED off
+  28   1      
+  29   1        //lcd_string("Welcome");
+  30   1      
+  31   1        while(1)
+  32   1        {
+  33   2          if (n <=3)           // limit the length of password
+  34   2          {
+  35   3                r1=r2=r3=r4=1;
+  36   3              r1 = 0;
+  37   3              if(c1 == 0)
+  38   3              {
+  39   4                lcd_data('*');
+  40   4                b[n] = '1';
+  41   4                n++;
+  42   4                delay(50);
+  43   4              }
+  44   3              else if(c2 == 0)
+  45   3              {
+  46   4                lcd_data('*');
+  47   4                b[n] = '2';
+  48   4                n++;
+  49   4                delay(50);
+  50   4              }
+  51   3              else if(c3 == 0)
+  52   3              {
+  53   4                lcd_data('*');
+  54   4                b[n] = '3';
+C51 COMPILER V9.60.7.0   KEYPAD_SECURITY_SYSTEM                                            11/21/2025 03:48:14 PAGE 2   
+
+  55   4                n++;
+  56   4                delay(50);
+  57   4              }
+  58   3              r1=r2=r3=r4=1;
+  59   3              r2 = 0;
+  60   3              if(c1 == 0)
+  61   3              {
+  62   4                lcd_data('*');
+  63   4                b[n] = '4';
+  64   4                n++;
+  65   4                delay(50);
+  66   4              }
+  67   3              else if(c2 == 0)
+  68   3              {
+  69   4                lcd_data('*');
+  70   4                b[n] = '5';
+  71   4                n++;
+  72   4                delay(50);
+  73   4              }
+  74   3              else if(c3 == 0)
+  75   3              {
+  76   4                lcd_data('*');
+  77   4                b[n] = '6';
+  78   4                n++;
+  79   4                delay(50);
+  80   4              }
+  81   3              r1=r2=r3=r4=1;
+  82   3              r3 = 0;
+  83   3              if(c1 == 0)
+  84   3              {
+  85   4                lcd_data('*');
+  86   4                b[n] = '7';
+  87   4                n++;
+  88   4                delay(50);
+  89   4              }
+  90   3              else if(c2 == 0)
+  91   3              {
+  92   4                lcd_data('*');
+  93   4                b[n] = '8';
+  94   4                n++;
+  95   4                delay(50);
+  96   4              }
+  97   3              else if(c3 == 0)
+  98   3              {
+  99   4                lcd_data('*');
+ 100   4                b[n] = '9';
+ 101   4                n++;
+ 102   4                delay(50);
+ 103   4              }
+ 104   3                r1=r2=r3=r4=1;
+ 105   3              r4 = 0;
+ 106   3              if(c1 == 0)
+ 107   3              {
+ 108   4                lcd_data('*');
+ 109   4                b[n] = '*';
+ 110   4                n++;
+ 111   4                delay(50);
+ 112   4              }
+ 113   3              else if(c2 == 0)
+ 114   3              {
+ 115   4                lcd_data('*');
+ 116   4                b[n] = '0';
+C51 COMPILER V9.60.7.0   KEYPAD_SECURITY_SYSTEM                                            11/21/2025 03:48:14 PAGE 3   
+
+ 117   4                n++;
+ 118   4                delay(50);
+ 119   4              }
+ 120   3              else if(c3 == 0)
+ 121   3              {
+ 122   4                lcd_data('*');
+ 123   4                b[n] = '#';
+ 124   4                n++;
+ 125   4                delay(50);
+ 126   4              }
+ 127   3            }
+ 128   2            else 
+ 129   2              {
+ 130   3                val = strncmp(a, b, 4);
+ 131   3                if (val == 0)
+ 132   3                {
+ 133   4                  Re=G=1;
+ 134   4                  R = 0;
+ 135   4                  //lcd_cmd(0X01);  // Clear display
+ 136   4                  lcd_cmd(0X82);  // 1 line 4st position
+ 137   4                  lcd_string("ACCESS GRANTED");
+ 138   4                  
+ 139   4                }
+ 140   3              
+ 141   3                if(val >0 || val<0)
+ 142   3                {
+ 143   4                  count++;
+ 144   4                  R=1;
+ 145   4                  Re=G=0;
+ 146   4                  //lcd_cmd(0X01);  // Clear display
+ 147   4                  lcd_cmd(0X83);  // 1 line 4st position
+ 148   4                  lcd_string("ACCESS DENIED");
+ 149   4                  delay(80);
+ 150   4                  lcd_cmd(0X01);
+ 151   4                  lcd_cmd(0X83);
+ 152   4                  lcd_string("TRY AGAIN");
+ 153   4                  n = 0;
+ 154   4                  lcd_cmd(0XC7);
+ 155   4                  if(count == 3)
+ 156   4                  {
+ 157   5                    lcd_cmd(0X01);
+ 158   5                    lcd_cmd(0X81);
+ 159   5                    lcd_string("ACCOUNT BLOCKED");
+ 160   5                    delay(500);
+ 161   5                    count = 0;
+ 162   5                    lcd_cmd(0X01);
+ 163   5                    lcd_cmd(0X83);
+ 164   5                    lcd_string("TRY AGAIN");
+ 165   5                    lcd_cmd(0XC7);
+ 166   5                  }
+ 167   4                }
+ 168   3                
+ 169   3               }
+ 170   2            
+ 171   2            
+ 172   2        }
+ 173   1      }
+ 174          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    736    ----
+C51 COMPILER V9.60.7.0   KEYPAD_SECURITY_SYSTEM                                            11/21/2025 03:48:14 PAGE 4   
+
+   CONSTANT SIZE    =     55    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     15       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

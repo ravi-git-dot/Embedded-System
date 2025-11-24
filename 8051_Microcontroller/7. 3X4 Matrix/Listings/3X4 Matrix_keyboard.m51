@@ -1,0 +1,174 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/20/2025  12:51:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\PROGRAM FILES\C51\BIN\BL51.EXE .\Objects\3X4 matrix.obj TO .\Objects\3X4 Matrix_keyboard PRINT (.\Listings\3X4 Matrix
+>> _keyboard.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\3X4 matrix.obj (3X4_MATRIX)
+  D:\PROGRAM FILES\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\3X4 Matrix_keyboard (3X4_MATRIX)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00AEH     UNIT         ?PR?MAIN?3X4_MATRIX
+            CODE    08AEH     002AH     UNIT         ?PR?_DELAY?3X4_MATRIX
+            CODE    08D8H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\3X4 Matrix_keyboard (3X4_MATRIX)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?3X4_MATRIX
+
+?PR?MAIN?3X4_MATRIX
+  +--> ?PR?_DELAY?3X4_MATRIX
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\3X4 Matrix_keyboard (3X4_MATRIX)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        3X4_MATRIX
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:08B2H         PUBLIC        _delay
+  B:00B0H.4       PUBLIC        c1
+  B:00B0H.5       PUBLIC        c2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/20/2025  12:51:55  PAGE 2
+
+
+  B:00B0H.6       PUBLIC        c3
+  B:00B0H.0       PUBLIC        r1
+  B:00B0H.1       PUBLIC        r2
+  B:00B0H.2       PUBLIC        r3
+  B:00B0H.3       PUBLIC        r4
+  C:0800H         PUBLIC        main
+  C:08AEH         SYMBOL        L?0041
+  -------         PROC          L?0040
+  -------         ENDPROC       L?0040
+  C:08AEH         SYMBOL        L?0041
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:08B2H         LINE#         11
+  C:08B2H         LINE#         12
+  C:08B2H         LINE#         14
+  C:08C2H         LINE#         15
+  C:08C2H         LINE#         16
+  C:08D0H         LINE#         17
+  C:08D7H         LINE#         18
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         20
+  C:0800H         LINE#         21
+  C:0800H         LINE#         22
+  C:0800H         LINE#         23
+  C:0800H         LINE#         24
+  C:080EH         LINE#         25
+  C:0810H         LINE#         26
+  C:0813H         LINE#         27
+  C:0813H         LINE#         28
+  C:0816H         LINE#         29
+  C:0816H         LINE#         30
+  C:0818H         LINE#         31
+  C:081BH         LINE#         32
+  C:081BH         LINE#         33
+  C:081EH         LINE#         34
+  C:081EH         LINE#         35
+  C:0820H         LINE#         36
+  C:0823H         LINE#         37
+  C:0823H         LINE#         38
+  C:0826H         LINE#         39
+  C:0829H         LINE#         40
+  C:0829H         LINE#         42
+  C:0837H         LINE#         43
+  C:0839H         LINE#         44
+  C:083CH         LINE#         45
+  C:083CH         LINE#         46
+  C:083FH         LINE#         47
+  C:083FH         LINE#         48
+  C:0841H         LINE#         49
+  C:0844H         LINE#         50
+  C:0844H         LINE#         51
+  C:0847H         LINE#         52
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/20/2025  12:51:55  PAGE 3
+
+
+  C:0847H         LINE#         53
+  C:0849H         LINE#         54
+  C:084CH         LINE#         55
+  C:084CH         LINE#         56
+  C:084FH         LINE#         57
+  C:0852H         LINE#         58
+  C:0852H         LINE#         60
+  C:0860H         LINE#         61
+  C:0862H         LINE#         62
+  C:0865H         LINE#         63
+  C:0865H         LINE#         64
+  C:0868H         LINE#         65
+  C:0868H         LINE#         66
+  C:086AH         LINE#         67
+  C:086DH         LINE#         68
+  C:086DH         LINE#         69
+  C:0870H         LINE#         70
+  C:0870H         LINE#         71
+  C:0872H         LINE#         72
+  C:0875H         LINE#         73
+  C:0875H         LINE#         74
+  C:0878H         LINE#         75
+  C:087BH         LINE#         76
+  C:087BH         LINE#         78
+  C:0889H         LINE#         79
+  C:088BH         LINE#         80
+  C:088EH         LINE#         81
+  C:088EH         LINE#         82
+  C:0891H         LINE#         83
+  C:0891H         LINE#         84
+  C:0893H         LINE#         85
+  C:0896H         LINE#         86
+  C:0896H         LINE#         87
+  C:0899H         LINE#         88
+  C:089CH         LINE#         89
+  C:089FH         LINE#         90
+  C:08A5H         LINE#         91
+  C:08A5H         LINE#         92
+  C:08A8H         LINE#         93
+  C:08ABH         LINE#         94
+  C:08ABH         LINE#         95
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        3X4_MATRIX
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D8H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=231
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

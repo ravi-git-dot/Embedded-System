@@ -4,11 +4,14 @@
 char message1[] = "Hello RaviRaj";        // First message
 char message2[] = "Welcome to House";     // Second message
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD pin connections: RS, EN, D4, D5, D6, D7
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // Initialize 16x2 I2C LCD
 
-int tin = 200;                            // Delay time for scrolling effect
+
+int tin = 500;                            // Delay time for scrolling effect
 
 void setup() {
+  lcd.init();          // Start LCD
+  lcd.backlight();     // Turn ON backlight
   lcd.begin(16, 2);                       // Initialize 16x2 LCD display
 }
 
